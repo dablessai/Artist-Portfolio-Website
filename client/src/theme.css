@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Jost:wght@400;500;600&display=swap');
+@import "tailwindcss";
+@import "tailwindcss-safe-area";
+@theme {
+  --text-xs: 12px; --text-xs--line-height: 16px;
+  --text-sm: 14px; --text-sm--line-height: 20px;
+  --text-base: 16px; --text-base--line-height: 24px;
+  --text-lg: 18px; --text-lg--line-height: 28px;
+  --text-xl: 20px; --text-xl--line-height: 28px;
+  --text-2xl: 24px; --text-2xl--line-height: 32px;
+  --text-3xl: 30px; --text-3xl--line-height: 36px;
+  --text-4xl: 36px; --text-4xl--line-height: 40px;
+  --text-5xl: 48px; --text-5xl--line-height: 52px;
+}
+:root {
+  color-scheme: light;
+  --bg: #FDF6E9; --surface: #FFF9EC; --card: #FFFFFF;
+  --text: #3B2314; --dim: #8A7360; --border: #EAD9B8;
+  --accent: #205E63; --marigold: #E9A13B; --sindoor: #C1442E; --teal: #205E63;
+  --radius: 14px;
+  --space-surface: var(--surface); --space-surface-alt: var(--surface); --space-muted: var(--dim); --space-border: var(--border); --space-accent: var(--accent);
+}
+body { font-family: 'Jost', system-ui, sans-serif; background: var(--bg); color: var(--text); }
+.font-serif-d { font-family: 'Cormorant Garamond', Georgia, serif; }
+.motif-strip { height: 6px; background: linear-gradient(90deg, #E9A13B 0 33%, #C1442E 33% 66%, #205E63 66% 100%); }
+.motif-dots { background-image: radial-gradient(#E9A13B 1.2px, transparent 1.3px); background-size: 14px 14px; }
+input, select, textarea { outline: none; }
+input:focus, select:focus, textarea:focus { border-color: #E9A13B !important; box-shadow: 0 0 0 3px rgba(233,161,59,.25); }
