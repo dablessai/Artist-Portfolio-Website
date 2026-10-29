@@ -774,7 +774,7 @@ const server = Bun.serve({
       }
       const state = `${randomUUID()}-${randomUUID()}`;
       oauthStates.set(state, Date.now() + 10 * 60 * 1000);
-      const redirectUri = `${url.origin}/api/instagram/callback`;
+      const redirectUri = "https://artbymukherjee.in/api/instagram/callback"; // Fixed canonical URI: must match the URI registered in the Meta app exactly, regardless of which domain (www/IP) the admin clicked Connect from.
       const auth = new URL("https://www.instagram.com/oauth/authorize");
       auth.searchParams.set("client_id", cfg.appId);
       auth.searchParams.set("redirect_uri", redirectUri);
@@ -794,7 +794,7 @@ const server = Bun.serve({
       oauthStates.delete(state);
       const cfg = igAppConfig();
       if (!cfg.configured) return new Response("Instagram app not configured on this server.", { status: 503 });
-      const redirectUri = `${url.origin}/api/instagram/callback`;
+      const redirectUri = "https://artbymukherjee.in/api/instagram/callback"; // Fixed canonical URI: must match the URI registered in the Meta app exactly, regardless of which domain (www/IP) the admin clicked Connect from.
       try {
         const form = new URLSearchParams();
         form.set("client_id", cfg.appId);

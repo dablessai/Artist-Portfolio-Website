@@ -134,7 +134,7 @@ export function App() {
               <figure className="border-[10px] border-white shadow-xl rotate-1 bg-white">
                 {(() => { const heroKey = settings["heroAsset"] || "oilFloralPortrait"; const heroArt = site.artworks.find(a => a.imageAsset === heroKey); return (<>
                 <img src={img(heroKey)} alt={heroArt ? `${heroArt.title} by Deepshikha Mukherjee` : "Artwork by Deepshikha Mukherjee"} className="w-full h-[380px] md:h-[460px] object-cover" />
-                <figcaption className="text-center text-xs py-2 text-[#8A7360]">{heroArt ? heroArt.title : "Featured artwork"} · Change in Admin → Content & Settings → Hero banner image</figcaption>
+                <figcaption className="text-center text-xs py-2 text-[#8A7360]">{heroArt ? (heroArt.year ? `${heroArt.title} (${heroArt.year})` : heroArt.title) : "Featured artwork"}</figcaption>
                 </>); })()}
               </figure>
             </section>
@@ -205,7 +205,7 @@ export function App() {
             <p className="text-sm text-[#C1442E] font-medium">Jamshedpur, Jharkhand, India · Shipping worldwide</p>
             <p className="mt-4 leading-relaxed whitespace-pre-wrap">{settings["aboutText"] || ""}</p>
             <div className="grid sm:grid-cols-3 gap-4 mt-8 text-center">
-              {[["Her Process", "Every piece begins with a sketch and a conversation — light, likeness and emotion are built up layer by layer."], ["Mediums", "Charcoal, graphite, soft pastel, oil paint and acrylics — chosen to suit each subject."], ["Exhibitions & Awards", "Details to be added by the artist in Admin → Content."]].map(([t, d]) => <div key={t} className="bg-white border border-[#EAD9B8] rounded-2xl p-4"><h4 className="font-serif-d text-xl font-semibold">{t}</h4><p className="text-sm mt-1 text-[#8A7360]">{d}</p></div>)}
+              {[["Her Process", "Every piece begins with a sketch and a conversation — light, likeness and emotion are built up layer by layer."], ["Mediums", "Charcoal, graphite, soft pastel, oil paint and acrylics — chosen to suit each subject."], ["Exhibitions & Awards", "Exhibition and award details will be shared here soon."]].map(([t, d]) => <div key={t} className="bg-white border border-[#EAD9B8] rounded-2xl p-4"><h4 className="font-serif-d text-xl font-semibold">{t}</h4><p className="text-sm mt-1 text-[#8A7360]">{d}</p></div>)}
             </div>
           </section>
         ) : page === "blog" ? (
@@ -390,7 +390,7 @@ function CommissionsPage({ site, notify }: { site: Site; notify: (m: string) => 
     <div className="grid md:grid-cols-2 gap-6 mt-8">
       <div className="bg-white border border-[#EAD9B8] rounded-3xl p-5">
         <h3 className="font-serif-d text-2xl font-semibold">Price Guide</h3>
-        <p className="text-xs text-[#8A7360]">Editable by the artist in Admin → Content. Final quote is confirmed during consultation.</p>
+        <p className="text-xs text-[#8A7360]">Final quote is confirmed during consultation.</p>
         <table className="w-full text-sm mt-3"><tbody>{guide.map((r, i) => <tr key={i} className="border-b border-[#EAD9B8]"><td className="py-2 font-medium pr-3">{r[0]}</td><td className="py-2">{r[1]}</td></tr>)}</tbody></table>
         <p className="text-sm mt-3"><strong>Turnaround:</strong> {s["turnaround"] || ""}</p>
         <h4 className="font-serif-d text-xl font-semibold mt-5">FAQs</h4>
